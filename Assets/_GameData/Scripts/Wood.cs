@@ -12,9 +12,7 @@ public class Wood : MonoBehaviour
 
     private void Start()
     {
-        woodTransform.DOLocalRotate(rotationVector, rotationDuration, RotateMode.FastBeyond360)
-       .SetLoops(-1, LoopType.Restart)
-       .SetEase(Ease.Linear);
+        woodTransform.DOLocalRotate(rotationVector, rotationDuration, RotateMode.FastBeyond360).SetLoops(-1, LoopType.Restart).SetEase(Ease.Linear);
     }
 
     public void Hit(int keyIndex, float damage)

@@ -1366,7 +1366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 25
-  hitDamage: 0.2
+  hitDamage: 0.05
   wood: {fileID: 1701796738}
   woodFx: {fileID: 542461081}
 --- !u!1 &1643381368
