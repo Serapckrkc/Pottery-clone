@@ -6,7 +6,7 @@ using UnityEngine.PlayerLoop;
 public class Knife : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
-
+    [SerializeField] private float hitDamage;
     private Rigidbody knifeRb;
     private Vector3 movementVector;
     private bool isMoving = false;
@@ -22,7 +22,7 @@ public class Knife : MonoBehaviour
 
         if (isMoving)
         {
-            movementVector = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0f)* movementSpeed*Time.deltaTime;
+            movementVector = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0f) * movementSpeed * Time.deltaTime;
         }
     }
 
@@ -30,7 +30,17 @@ public class Knife : MonoBehaviour
     {
         if (isMoving)
         {
-            knifeRb.position += movementVector;
+            knifeRb.position += movementVector; 
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        Colli colli = collision.collider.GetComponent<Colli>();
+        if (colli != null)
+        {
+            //hit Collider:
+            colli.HitCollider(hitDamage);
         }
     }
 }
